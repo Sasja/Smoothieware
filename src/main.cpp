@@ -7,6 +7,7 @@
 
 #include "libs/Kernel.h"
 
+#include "modules/tools/dac/Dac.h"
 #include "modules/tools/laser/Laser.h"
 #include "modules/tools/spindle/Spindle.h"
 #include "modules/tools/extruder/ExtruderMaker.h"
@@ -148,6 +149,9 @@ void init() {
     #endif
     #ifndef NO_TOOLS_LASER
     kernel->add_module( new Laser() );
+    #endif
+    #ifndef NO_TOOLS_DAC
+    kernel->add_module( new Dac() );
     #endif
     #ifndef NO_TOOLS_SPINDLE
     kernel->add_module( new Spindle() );
